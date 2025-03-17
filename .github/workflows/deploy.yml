@@ -29,13 +29,16 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "dockerfile"
+        run: "npm install"
+
+      - name: Build step
+        run: "npm run build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "rajeshrakis-alpha-music-45"
           entrypoint: ""
-          root: ""
+          root: "."
           
           
